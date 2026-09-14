@@ -11,15 +11,17 @@ endpoints:
   method: GET
   url: https://www.pabcbank.com/card-offers/
   path: /card-offers/
-  summary: Offers page. Bank rebranded pabc.com -> pabcbank.com; old Sucuri/arr_offers scrape path unverified on new site, needs re-check.
+  summary: 'PARK — bank rebranded pabc.com -> pabcbank.com (URL corrected), but entire site sits behind an active Sucuri CloudProxy JS challenge. Plain HTTP GET never resolves (infinite redirect loop); only a JS-executing client passes. Per docs/ETHICS.md ("Upstream ToS wins... park that surface"), not bypassing the WAF challenge.'
+  status: parked
   pagination:
     style: client_array
     lab: true
-    notes: Site moved to pabcbank.com; confirm whether WAF cookie / arr_offers JS parsing still applies
-  access: html_scrape
+    notes: Confirmed via manual probe on 2026-09-14 — Sucuri challenge active on pabcbank.com, same as old pabc.com. Needs a real browser/headless client to view, not a scripted fetch.
+  access: parked
 - id: senior_fd_html
   method: GET
   url: https://www.pabcbank.com/personal-banking/senior-citizen-accounts/senior-citizens-fd/
   path: /personal-banking/senior-citizen-accounts/senior-citizens-fd/
-  summary: Senior FD HTML (main ladder may be PDF-only). Bank rebranded pabc.com -> pabcbank.com.
-  access: pdf_document
+  summary: 'PARK — bank rebranded pabc.com -> pabcbank.com (URL corrected), but same Sucuri CloudProxy WAF challenge blocks plain HTTP GET across the whole site. See card_offers_js note.'
+  status: parked
+  access: parked
