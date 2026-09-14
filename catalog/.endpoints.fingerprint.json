@@ -1,31 +1,30 @@
 {
-  "sha256": "4464af83bf4f0d28f79f72f5ffdfb1a630eb43431ffecaf232f852c2391c3531",
+  "sha256": "09a41ebcb536e5497c22c9b911fcf47f3b46a1346528a962f9ec8de3de5ee12b",
   "endpoint_count": 2,
   "endpoints": {
     "card_offers_js": {
       "id": "card_offers_js",
       "method": "GET",
-      "path": "/personal/cards/offers",
-      "url": "https://www.pabc.com/personal/cards/offers",
+      "path": "/card-offers/",
+      "url": "https://www.pabcbank.com/card-offers/",
       "status": "live",
       "access": "html_scrape",
-      "summary": "Offers page; arr_offers JS after Sucuri cookie.",
+      "summary": "Offers page. Bank rebranded pabc.com -> pabcbank.com; old Sucuri/arr_offers scrape path unverified on new site, needs re-check.",
       "pagination": {
         "style": "client_array",
         "lab": true,
-        "notes": "Parse arr_offers after WAF cookie"
+        "notes": "Site moved to pabcbank.com; confirm whether WAF cookie / arr_offers JS parsing still applies"
       }
     },
     "senior_fd_html": {
       "id": "senior_fd_html",
       "method": "GET",
-      "path": "/personal/deposits/senior-citizens-fixed-deposit",
-      "url": "https://www.pabc.com/personal/deposits/senior-citizens-fixed-deposit",
+      "path": "/personal-banking/senior-citizen-accounts/senior-citizens-fd/",
+      "url": "https://www.pabcbank.com/personal-banking/senior-citizen-accounts/senior-citizens-fd/",
       "status": "live",
       "access": "pdf_document",
-      "summary": "Senior FD HTML (main ladder may be PDF-only).",
+      "summary": "Senior FD HTML (main ladder may be PDF-only). Bank rebranded pabc.com -> pabcbank.com.",
       "pagination": null
     }
-  },
-  "updated": "2026-07-20"
+  }
 }
