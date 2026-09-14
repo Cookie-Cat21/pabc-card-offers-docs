@@ -1,5 +1,5 @@
 {
-  "sha256": "09a41ebcb536e5497c22c9b911fcf47f3b46a1346528a962f9ec8de3de5ee12b",
+  "sha256": "40854639edbe073511a20ef70a24dedb93d5935aafc1981f3b1dfb3bfa57fb3d",
   "endpoint_count": 2,
   "endpoints": {
     "card_offers_js": {
@@ -7,13 +7,13 @@
       "method": "GET",
       "path": "/card-offers/",
       "url": "https://www.pabcbank.com/card-offers/",
-      "status": "live",
-      "access": "html_scrape",
-      "summary": "Offers page. Bank rebranded pabc.com -> pabcbank.com; old Sucuri/arr_offers scrape path unverified on new site, needs re-check.",
+      "status": "parked",
+      "access": "parked",
+      "summary": "PARK \u2014 bank rebranded pabc.com -> pabcbank.com (URL corrected), but entire site sits behind an active Sucuri CloudProxy JS challenge. Plain HTTP GET never resolves (infinite redirect loop); only a JS-executing client passes. Per docs/ETHICS.md (\"Upstream ToS wins... park that surface\"), not bypassing the WAF challenge.",
       "pagination": {
         "style": "client_array",
         "lab": true,
-        "notes": "Site moved to pabcbank.com; confirm whether WAF cookie / arr_offers JS parsing still applies"
+        "notes": "Confirmed via manual probe on 2026-09-14 \u2014 Sucuri challenge active on pabcbank.com, same as old pabc.com. Needs a real browser/headless client to view, not a scripted fetch."
       }
     },
     "senior_fd_html": {
@@ -21,9 +21,9 @@
       "method": "GET",
       "path": "/personal-banking/senior-citizen-accounts/senior-citizens-fd/",
       "url": "https://www.pabcbank.com/personal-banking/senior-citizen-accounts/senior-citizens-fd/",
-      "status": "live",
-      "access": "pdf_document",
-      "summary": "Senior FD HTML (main ladder may be PDF-only). Bank rebranded pabc.com -> pabcbank.com.",
+      "status": "parked",
+      "access": "parked",
+      "summary": "PARK \u2014 bank rebranded pabc.com -> pabcbank.com (URL corrected), but same Sucuri CloudProxy WAF challenge blocks plain HTTP GET across the whole site. See card_offers_js note.",
       "pagination": null
     }
   }
