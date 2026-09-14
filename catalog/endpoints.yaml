@@ -1,5 +1,5 @@
 title: Pan Asia Bank Card Offers
-host: https://www.pabc.com
+host: https://www.pabcbank.com
 tier: B
 category: cards
 probe_delay_seconds: 1.0
@@ -9,17 +9,17 @@ source_docs_in_lankawa:
 endpoints:
 - id: card_offers_js
   method: GET
-  url: https://www.pabc.com/personal/cards/offers
-  path: /personal/cards/offers
-  summary: Offers page; arr_offers JS after Sucuri cookie.
+  url: https://www.pabcbank.com/card-offers/
+  path: /card-offers/
+  summary: Offers page. Bank rebranded pabc.com -> pabcbank.com; old Sucuri/arr_offers scrape path unverified on new site, needs re-check.
   pagination:
     style: client_array
     lab: true
-    notes: Parse arr_offers after WAF cookie
+    notes: Site moved to pabcbank.com; confirm whether WAF cookie / arr_offers JS parsing still applies
   access: html_scrape
 - id: senior_fd_html
   method: GET
-  url: https://www.pabc.com/personal/deposits/senior-citizens-fixed-deposit
-  path: /personal/deposits/senior-citizens-fixed-deposit
-  summary: Senior FD HTML (main ladder may be PDF-only).
+  url: https://www.pabcbank.com/personal-banking/senior-citizen-accounts/senior-citizens-fd/
+  path: /personal-banking/senior-citizen-accounts/senior-citizens-fd/
+  summary: Senior FD HTML (main ladder may be PDF-only). Bank rebranded pabc.com -> pabcbank.com.
   access: pdf_document
